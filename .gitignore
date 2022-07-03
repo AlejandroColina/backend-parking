@@ -1,14 +1,10 @@
-node_modules
-.env
-env
 # dependencies
-**/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
 # misc
-*.env
-*/.env
+**/.env
 .DS_Store
 .env.local
 .env.development.local
