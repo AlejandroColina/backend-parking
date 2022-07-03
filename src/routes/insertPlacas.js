@@ -11,6 +11,7 @@ const { Vehiculo, Facturas, Calendar } = db.models;
 router.get('/:placa', async (req, res) => {
     try {
         let { placa } = req.params;
+        if (placa.length < 5 || placa.length > 6) return res.status(404).json({ msg: 'Placa incompleta' });
 
         let consulta = await Vehiculo.findOne({ where: { placa: placa } });
         if (!consulta) { consulta = await Vehiculo.create({ placa: placa }) }

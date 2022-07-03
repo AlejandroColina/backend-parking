@@ -25,6 +25,7 @@ router.get('/:placa', async (req, res) => {
     try {
 
         const { placa } = req.params;
+        if (placa.length < 5 || placa.length > 6) return res.status(404).json({ msg: 'Placa incompleta' });
 
         let vehiculo = await Vehiculo.findOne({ where: { placa: placa } });
         if (!vehiculo) return res.json({ msg: 'No hay registros.' });
